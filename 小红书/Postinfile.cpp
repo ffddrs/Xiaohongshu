@@ -3,7 +3,6 @@
 #include<fstream>
 #include<vector>
 #include"GlobalVariable.h"
-#include"Content&Comments.h"
 
 
 void commentinfile(vector<content> comments)

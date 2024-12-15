@@ -36,9 +36,6 @@
     <ClCompile Include="Postinfile.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
-    <ClCompile Include="Content&amp;Comments.cpp">
-      <Filter>源文件</Filter>
-    </ClCompile>
     <ClCompile Include="Upload.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
@@ -60,9 +57,6 @@
       <Filter>头文件</Filter>
     </ClInclude>
     <ClInclude Include="Home.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
-    <ClInclude Include="Content&amp;Comments.h">
       <Filter>头文件</Filter>
     </ClInclude>
     <ClInclude Include="Postinfile.h">

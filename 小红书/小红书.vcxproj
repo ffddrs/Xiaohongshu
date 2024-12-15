@@ -129,7 +129,6 @@
   <ItemGroup>
     <ClCompile Include="Browse.cpp" />
     <ClCompile Include="Choose_Module.cpp" />
-    <ClCompile Include="Content&amp;Comments.cpp" />
     <ClCompile Include="GeneralFunctions.cpp" />
     <ClCompile Include="GlobalVariable.h" />
     <ClCompile Include="Home.cpp" />
@@ -142,7 +141,6 @@
   <ItemGroup>
     <ClInclude Include="Browse.h" />
     <ClInclude Include="Choose_Module.h" />
-    <ClInclude Include="Content&amp;Comments.h" />
     <ClInclude Include="GeneralFunctions.h" />
     <ClInclude Include="Home.h" />
     <ClInclude Include="Login&amp;Register.h" />

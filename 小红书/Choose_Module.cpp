@@ -22,6 +22,11 @@ void choose_module()
         upload();
     else if (final_selection == "Browse")
         browse();
+    else if (final_selection == "Choose one")
+        chooseone();
+    else if (final_selection == "Back to Browse")
+        browse();
+
     else if(true)
     {
         cout << "Invalid input, go to home page";
