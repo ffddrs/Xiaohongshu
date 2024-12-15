@@ -14,9 +14,10 @@ void upload()
 	datetime ctime;
 	clearscreen();
 	cout << "Please type in your title below:" << endl;
-	cin >> uploadcont.title;
+	cin.ignore();
+	getline(cin, uploadcont.title);
 	cout << "Please type in your text below" << endl;
-	cin >> uploadcont.text;
+	getline(cin, uploadcont.text);
 	cout << "Are you sure to upload now ?" << endl;
 	display_selections(2, "Yes,No");
 	if (final_selection == "No")
