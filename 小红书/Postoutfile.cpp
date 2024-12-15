@@ -48,34 +48,20 @@ void postoutfile()
         cout << "An error occurred: failed to open file 'content'" << endl;
         exit(-1);
     }
-    getline(in_file, post.nickname);
-    getline(in_file, post.time);
-    getline(in_file, post.phonum);
-    getline(in_file, post.title);
-    getline(in_file, post.text);
-    in_file >> post.ifcomment;
-    in_file >> post.commentnum;
-    if (post.ifcomment == 1)
-    {
-        post.comments = *commentoutfile(post.commentnum, in_file);
-    }
-    allcontent.push_back(post);
-    int i = 1;
-    while (!in_file.fail())
+    while (true)
     {
         in_file.ignore();
-        getline(in_file, post.nickname);
-        getline(in_file, post.time);
-        getline(in_file, post.phonum);
-        getline(in_file, post.title);
-        getline(in_file, post.text);
-        in_file >> post.ifcomment;
-        in_file >> post.commentnum;
+        if (!getline(in_file, post.nickname)) break;
+        if (!getline(in_file, post.time)) break;
+        if (!getline(in_file, post.phonum)) break;
+        if (!getline(in_file, post.title)) break;
+        if (!getline(in_file, post.text)) break;
+        if (!(in_file >> post.ifcomment)) break;
+        if (!(in_file >> post.commentnum)) break;
         if (post.ifcomment == 1)
         {
             post.comments = *commentoutfile(post.commentnum, in_file);
         }
         allcontent.push_back(post);
-        i++;
     }
 }
