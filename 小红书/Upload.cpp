@@ -30,7 +30,7 @@ void upload()
 		uploadcont.nickname = currentnickname;
 		uploadcont.phonum = currentphonum;
 		ctime = gettime();
-		uploadcont.time = converttime(ctime);
+		uploadcont.time = ctime;
 		postinfile(uploadcont);
 		cout << "Successfully upload" << endl;
 		home();

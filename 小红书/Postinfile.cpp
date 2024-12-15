@@ -17,15 +17,20 @@ void commentinfile(vector<content> comments)
 	for (content com : comments)
 	{
 		out_file << com.nickname << endl;
-		out_file << com.time << endl;
+		out_file << com.time.year << endl;
+		out_file << com.time.month << endl;
+		out_file << com.time.day << endl;
+		out_file << com.time.hour << endl;
+		out_file << com.time.minute << endl;
+		out_file << com.time.second << endl;
 		out_file << com.phonum << endl;
 		out_file << com.title << endl;
 		out_file << com.text << endl;
 		if (com.ifcomment == 0)
-			out_file << "no" << endl;
+			out_file << "0" << endl;
 		else
 		{
-			out_file << "yes" << endl;
+			out_file << "1" << endl;
 			out_file << com.commentnum << endl;
 			commentinfile(com.comments);
 		}
@@ -42,7 +47,12 @@ void postinfile(content post)
 		exit(-1);
 	}
 	out_file << post.nickname << endl;
-	out_file << post.time << endl;
+	out_file << post.time.year << endl;
+	out_file << post.time.month << endl;
+	out_file << post.time.day << endl;
+	out_file << post.time.hour << endl;
+	out_file << post.time.minute << endl;
+	out_file << post.time.second << endl;
 	out_file << post.phonum << endl;
 	out_file << post.title << endl;
 	out_file << post.text << endl;

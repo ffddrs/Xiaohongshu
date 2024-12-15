@@ -7,11 +7,22 @@
 
 using namespace std;
 
+struct datetime
+{
+    string year;
+    string month;
+    string day;
+    string hour;
+    string minute;
+    string second;
+};
+
+
 struct content
 {
     string nickname;
     string title;
-    string time;
+    datetime time;
     string text;
     string phonum;
     bool ifcomment = false;
@@ -25,15 +36,5 @@ extern string currentnickname;
 extern string currentphonum;
 extern vector<content> allcontent;
 extern bool loginstatus;
-
-struct datetime 
-{
-    string year;
-    string month;
-    string day;
-    string hour;
-    string minute;
-    string second;
-};
 
 #endif // GLOBALVARIABLE_H

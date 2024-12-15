@@ -16,7 +16,7 @@ void browse()
 	int i = 0;
 	for (content post : allcontent)
 	{
-		cout << i+1 << "." << post.title << "  " << "Posted by " << post.nickname << "  " << convertstrtime(post.time) << endl;
+		cout << i+1 << "." << post.title << "  " << "Posted by " << post.nickname << "  " << convertstrtime(converttime(post.time)) << endl;
 		i++;
 	}
 	display_selections(3, "Choose one,Home,Exit");

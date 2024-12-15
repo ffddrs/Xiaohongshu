@@ -23,7 +23,12 @@ vector<content>* commentoutfile(int commentnum, ifstream& in_file)
         content comment;
         in_file.ignore();
         getline(in_file, comment.nickname);
-        getline(in_file, comment.time);
+        getline(in_file, comment.time.year);
+        getline(in_file, comment.time.month);
+        getline(in_file, comment.time.day);
+        getline(in_file, comment.time.hour);
+        getline(in_file, comment.time.minute);
+        getline(in_file, comment.time.second);
         getline(in_file, comment.phonum);
         getline(in_file, comment.title);
         getline(in_file, comment.text);
@@ -52,7 +57,12 @@ void postoutfile()
     {
         in_file.ignore();
         if (!getline(in_file, post.nickname)) break;
-        if (!getline(in_file, post.time)) break;
+        if (!getline(in_file, post.time.year)) break;
+        if (!getline(in_file, post.time.month)) break;
+        if (!getline(in_file, post.time.day)) break;
+        if (!getline(in_file, post.time.hour)) break;
+        if (!getline(in_file, post.time.minute)) break;
+        if (!getline(in_file, post.time.second)) break;
         if (!getline(in_file, post.phonum)) break;
         if (!getline(in_file, post.title)) break;
         if (!getline(in_file, post.text)) break;
