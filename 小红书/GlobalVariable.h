@@ -23,7 +23,7 @@ struct content
 extern string final_selection;
 extern string currentnickname;
 extern string currentphonum;
-extern vector<content> allcontent;;
+extern vector<content> allcontent;
 extern bool loginstatus;
 
 struct datetime 
