@@ -1,6 +1,5 @@
 #include<iostream>
 #include"GlobalVariable.h"
-#include"Content&Comments.h"
 #include"Postinfile.h"
 #include"GeneralFunctions.h"
 #include"Home.h"

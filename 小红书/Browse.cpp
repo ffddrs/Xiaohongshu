@@ -6,12 +6,16 @@
 #include"Postoutfile.h"
 #include"GeneralFunctions.h"
 #include"Choose_Module.h"
+#include"Postinfile.h"
 
 using namespace std;
+
+int currentpostnum;
 
 void browse()
 {
 	clearscreen();
+	postoutfile();
 	int i = 0;
 	for (content post : allcontent)
 	{
@@ -72,8 +76,39 @@ void chooseone()
 	int n;
 	cout << "Please enter a number of the post you want to browse" << endl;
 	cin >> n;
+	currentpostnum = n;
 	displaypost(n);
 	cout << endl;
 	display_selections(4, "Back to Browse,Comment,Home,Exit");
+	choose_module();
+}
+
+void comment()
+{
+	content newcomment;
+	cout << "Please enter the text below" << endl;
+	cin.ignore();
+	getline(cin, newcomment.text);
+	newcomment.commentnum = 0;
+	newcomment.ifcomment = 0;
+	newcomment.nickname = currentnickname;
+	newcomment.phonum = currentphonum;
+	newcomment.time = gettime();
+	allcontent[currentpostnum - 1].ifcomment = 1;
+	allcontent[currentpostnum - 1].commentnum++;
+	allcontent[currentpostnum - 1].comments.push_back(newcomment);
+	ofstream out_file("content", ios::out);
+	if (!out_file)
+	{
+		cout << "An error occurred: failed to open file" << endl;
+		exit(-1);
+	}
+	out_file.close();
+	for (content c : allcontent)
+	{
+		postinfile(c);
+	}
+	cout << "Commentted successfully" << endl;
+	display_selections(3, "Browse,Home,Exit");
 	choose_module();
 }

@@ -30,7 +30,7 @@ struct content
     vector<content> comments;
 };
 
-
+extern int currentpostnum;
 extern string final_selection;
 extern string currentnickname;
 extern string currentphonum;

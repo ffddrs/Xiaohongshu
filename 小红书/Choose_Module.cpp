@@ -26,6 +26,8 @@ void choose_module()
         chooseone();
     else if (final_selection == "Back to Browse")
         browse();
+    else if (final_selection == "Comment")
+        comment();
 
     else if(true)
     {

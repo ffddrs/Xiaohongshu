@@ -26,7 +26,7 @@ void commentinfile(vector<content> comments)
 		out_file << com.title << endl;
 		out_file << com.text << endl;
 		if (com.ifcomment == 0)
-			out_file << "0" << endl;
+			out_file << "0" << endl << "0" << endl;
 		else
 		{
 			out_file << "1" << endl;
@@ -57,12 +57,12 @@ void postinfile(content post)
 	out_file << post.text << endl;
 	if (post.ifcomment == 0)
 	{		
-		out_file << "no" << endl;
+		out_file << "0" << endl;
 		out_file << '0' << endl;
 	}
 	else
 	{
-		out_file << "yes" << endl;
+		out_file << "1" << endl;
 		out_file << post.commentnum << endl;
 	}
 	out_file.close();

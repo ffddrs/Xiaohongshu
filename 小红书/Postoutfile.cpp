@@ -3,7 +3,6 @@
 #include<fstream>
 #include<vector>
 #include"GlobalVariable.h"
-#include"Content&Comments.h"
 
 using namespace std;
 
@@ -46,6 +45,7 @@ vector<content>* commentoutfile(int commentnum, ifstream& in_file)
 
 void postoutfile()
 {
+    allcontent.clear();
     content post;
     ifstream in_file("content", ios::in);
     if (!in_file)
@@ -72,6 +72,8 @@ void postoutfile()
         {
             post.comments = *commentoutfile(post.commentnum, in_file);
         }
+        else if (post.ifcomment == 0)
+            post.comments.clear();
         allcontent.push_back(post);
     }
 }
