@@ -12,18 +12,18 @@ using namespace std;
 string currentphonum, currentnickname;
 
 string geranstring(int length) {
-	const char charset[] = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ";
-	const int max_index = sizeof(charset) - 1;
-	random_device rd; 
-	mt19937 generator(rd()); 
-	uniform_int_distribution<> distribution(0, max_index);
+    const char charset[] = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ";
+    const int max_index = sizeof(charset) - 2;
+    random_device rd; 
+    mt19937 generator(rd()); 
+    uniform_int_distribution<> distribution(0, max_index);
 
-	string random_string;
-	for (int i = 0; i < length; ++i) {
-		random_string += charset[distribution(generator)];
-	}
+    string random_string;
+    for (int i = 0; i < length; ++i) {
+        random_string += charset[distribution(generator)];
+    }
 
-	return random_string;
+    return random_string;
 }
 
 int phonumvalidity(string phonum)
