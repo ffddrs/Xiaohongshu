@@ -147,9 +147,9 @@ void login()
 		sum++;
 	}
 	in_file.close();
+	cin.ignore();
 enterpass:
 	cout << "Please enter your phone number below" << endl;
-	cin.ignore();
 	getline(cin, phnum);
 	cout << "Please enter your password below" << endl;
 	std::getline(std::cin, password);
