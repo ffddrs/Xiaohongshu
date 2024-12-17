@@ -167,6 +167,7 @@ enterpass:
 		cout << "Your input contains spaces, please re-enter it" << endl;
 		goto enterpass;
 	}
+	accnum = -1;
 	for (accounts i : acc)
 	{
 		accnum++;
