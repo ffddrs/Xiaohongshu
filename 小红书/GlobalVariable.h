@@ -28,7 +28,6 @@ struct content
     bool ifcomment = false;
     int commentnum = 0;
     vector<content> comments;
-    long long int timesort = 0;
 };
 
 struct accounts

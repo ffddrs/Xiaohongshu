@@ -16,7 +16,6 @@ void browse()
 {
 	clearscreen();
 	postoutfile();
-	sortbytime(allcontent);
 	int i = 0;
 	for (content post : allcontent)
 	{

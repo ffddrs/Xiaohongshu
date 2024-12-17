@@ -1,7 +1,6 @@
 #include<iostream>
 #include<cstdlib>
 #include<ctime>
-#include<cmath>
 #include<string>
 #include"GlobalVariable.h"
 
@@ -134,35 +133,4 @@ string convertstrtime(string time)
 bool contain_space(const string& input) 
 {
     return input.find(' ') != string::npos;
-}
-
-int stringtoint(string str)
-{
-    int sum = 0;
-    int k = str.size();
-    for (char ch : str)
-    {
-        sum += (ch - '0') * pow(10, k - 1);
-        k--;
-    }
-    return sum;
-}
-
-vector<content>& sortbytime(vector<content>& postlist)
-{
-    for (content& post : postlist)
-    {
-        post.timesort = stringtoint(post.time.second) + stringtoint(post.time.minute) * 100 + stringtoint(post.time.hour) * 10000 + stringtoint(post.time.day) * 1000000 + stringtoint(post.time.month) * 100000000 + stringtoint(post.time.year) * 1000000000000;
-    }
-    for (int i = 1,int k=postlist.size(); i < k; i++, k--)
-    {
-        content temp;
-        if (postlist[i].timesort > postlist[i - 1].timesort)
-        {
-            temp = postlist[i - 1];
-            postlist[i - 1] = postlist[i];
-            postlist[i] = temp;
-        }
-    }
-    return postlist;
 }
