@@ -83,6 +83,41 @@ void chooseone()
 	choose_module();
 }
 
+void subscribeaftcomm(string postphonum)
+{
+	if (acc[currentaccno].subscrinum != 0)
+	{
+		for (string subscriphonum : acc[currentaccno].subscription)
+		{
+			if (subscriphonum == postphonum)
+				return;
+		}
+	}
+	cout << "You haven't subscribed to this author, do you want to subscribe ?" << endl;
+	display_selections(2, "Yes,NO");
+	if (final_selection == "No")
+		browse();
+	else if (final_selection == "Yes")
+	{
+		acc[currentaccno].subscrinum++;
+		acc[currentaccno].subscription.push_back(postphonum);
+		ofstream out_file("accounts", ios::out);
+		if (!out_file)
+		{
+			cout << "An error occurred: failed to open file";
+			exit(-1);
+		}
+		for (accounts account : acc)
+		{
+			out_file << account.accphonum << endl << account.accpassword << endl << account.nickname << endl << account.subscrinum << endl;
+			for (string sub : account.subscription)
+				out_file << sub << endl;
+		}
+		out_file.close();
+		return;
+	}
+}
+
 void comment()
 {
 	content newcomment;
@@ -103,12 +138,14 @@ void comment()
 		cout << "An error occurred: failed to open file" << endl;
 		exit(-1);
 	}
+	out_file << endl;
 	out_file.close();
 	for (content c : allcontent)
 	{
 		postinfile(c);
 	}
 	cout << "Commentted successfully" << endl;
+	subscribeaftcomm(allcontent[currentpostnum - 1].phonum);
 	display_selections(3, "Browse,Home,Exit");
 	choose_module();
 }

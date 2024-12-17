@@ -10,6 +10,8 @@
 using namespace std;
 
 string currentphonum, currentnickname;
+accounts acc[200];
+int currentaccno;
 
 string geranstring(int length) {
     const char charset[] = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ";
@@ -41,6 +43,11 @@ int phonumvalidity(string phonum)
 			cout << "Invalid phone number, please enter again" << endl;
 			return -1;
 		}
+	}
+	if (phonum.size() != 11)
+	{
+		cout << "Invalid phone number, please enter again" << endl;
+		return -1;
 	}
 	string phonumbeginn;
 	for (int i = 0; i < 3; i++)
@@ -117,15 +124,8 @@ int accountunique(string phonum)
 
 void login()
 {
-	struct accounts
-	{
-		string accphonum;
-		string accpassword;
-		string nickname;
-	};
 	int accnum = -1, sum = 0, failnum = 0;
 	bool find = 0;
-	accounts acc[200];
 	string phnum, password, verifyinput;
 	string verify;
 	clearscreen();
@@ -138,12 +138,33 @@ void login()
 	getline(in_file, acc[0].accphonum);
 	getline(in_file, acc[0].accpassword);
 	getline(in_file, acc[0].nickname);
+	in_file >> acc[0].subscrinum;
+	if (acc[0].subscrinum != 0)
+	{
+		for (int i = 0; i < acc[0].subscrinum; i++)
+		{
+			string subscri;
+			in_file >> subscri;
+			acc[0].subscription.push_back(subscri);
+		}
+	}
 	sum++;
 	while (!in_file.fail())
 	{
+		in_file.ignore();
 		getline(in_file, acc[sum].accphonum);
 		getline(in_file, acc[sum].accpassword);
-		getline(in_file, acc[sum].nickname);		
+		getline(in_file, acc[sum].nickname);	
+		in_file >> acc[sum].subscrinum;
+		if (acc[sum].subscrinum != 0)
+		{
+			for (int i = 0; i < acc[sum].subscrinum; i++)
+			{
+				string subscri;
+				cin >> subscri;
+				acc[sum].subscription.push_back(subscri);
+			}
+		}
 		sum++;
 	}
 	in_file.close();
@@ -184,6 +205,7 @@ enterpass:
 			cout << "Log in succesfully" << endl;
 			currentnickname = acc[accnum].nickname;
 			currentphonum = acc[accnum].accphonum;
+			currentaccno = accnum;
 			loginstatus = 1;
 			display_selections(2, "Home,Exit");
 			choose_module();
@@ -252,7 +274,7 @@ regisenterpass:
 		cout << "An error occurred: failed to open file";
 		exit(-1);
 	}
-	out_file << phonum << endl << password << endl << nickname << endl;
+	out_file << phonum << endl << password << endl << nickname << endl << '0' << endl;
 	cout << "Successfully Registered"<<endl;
 	out_file.close();
 	display_selections(2, "Log in,Exit");

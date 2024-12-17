@@ -30,10 +30,21 @@ struct content
     vector<content> comments;
 };
 
+struct accounts
+{
+    string accphonum;
+    string accpassword;
+    string nickname;
+    int subscrinum;
+    vector<string> subscription;
+};
+
 extern int currentpostnum;
 extern string final_selection;
 extern string currentnickname;
 extern string currentphonum;
+extern accounts acc[200];
+extern int currentaccno;
 extern vector<content> allcontent;
 extern bool loginstatus;
 
