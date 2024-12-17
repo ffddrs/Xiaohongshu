@@ -15,8 +15,6 @@ vector<content>* commentoutfile(int commentnum, ifstream& in_file)
     vector<content> allcomment;
     vector<content> blank;
     allcomment = blank;
-    vector<content>* comaddress;
-    comaddress = &allcomment;
     for (int i = 0; i < commentnum; i++)
     {
         content comment;
@@ -38,8 +36,8 @@ vector<content>* commentoutfile(int commentnum, ifstream& in_file)
             comment.comments = *commentoutfile(comment.commentnum, in_file);
         }
         allcomment.push_back(comment);
-        temp = allcomment;
     }
+    temp = allcomment;
     return &temp;
 }
 
