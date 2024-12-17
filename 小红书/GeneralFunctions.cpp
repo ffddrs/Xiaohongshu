@@ -154,7 +154,8 @@ vector<content>& sortbytime(vector<content>& postlist)
     {
         post.timesort = stringtoint(post.time.second) + stringtoint(post.time.minute) * 100 + stringtoint(post.time.hour) * 10000 + stringtoint(post.time.day) * 1000000 + stringtoint(post.time.month) * 100000000 + stringtoint(post.time.year) * 1000000000000;
     }
-    for (int i = 1,int k=postlist.size(); i < k; i++, k--)
+    int k = postlist.size();
+    for (int i = 1; i < k; i++, k--)
     {
         content temp;
         if (postlist[i].timesort > postlist[i - 1].timesort)

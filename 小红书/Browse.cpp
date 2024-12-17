@@ -4,9 +4,9 @@
 #include<vector>
 #include"GlobalVariable.h"
 #include"Postoutfile.h"
-#include"GeneralFunctions.h"
 #include"Choose_Module.h"
 #include"Postinfile.h"
+#include"GeneralFunctions.h"
 
 using namespace std;
 
