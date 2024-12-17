@@ -161,7 +161,7 @@ void login()
 			for (int i = 0; i < acc[sum].subscrinum; i++)
 			{
 				string subscri;
-				cin >> subscri;
+				in_file >> subscri;
 				acc[sum].subscription.push_back(subscri);
 			}
 		}
