@@ -59,7 +59,6 @@ void displaypost(int n ,int indent=0)
 {
 	int m = n - 1;
 	clearscreen();
-	sortbytime(allcontent[m].comments);
 	string indentStr(indent, ' ');
 	cout << indentStr << "Title: " << allcontent[m].title << endl << endl << endl;
 	cout << indentStr << "Text: " << allcontent[m].text << endl << endl;
