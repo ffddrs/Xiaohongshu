@@ -45,9 +45,6 @@
     <ClCompile Include="Browse.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
-    <ClCompile Include="Delete.cpp">
-      <Filter>源文件</Filter>
-    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="GeneralFunctions.h">
@@ -72,9 +69,6 @@
       <Filter>头文件</Filter>
     </ClInclude>
     <ClInclude Include="Browse.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
-    <ClInclude Include="Delete.h">
       <Filter>头文件</Filter>
     </ClInclude>
   </ItemGroup>

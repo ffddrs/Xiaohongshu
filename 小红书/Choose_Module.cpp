@@ -5,7 +5,6 @@
 #include"GlobalVariable.h"
 #include"Upload.h"
 #include"Browse.h"
-#include"Delete.h"
 
 using namespace std;
 
@@ -25,8 +24,6 @@ void choose_module()
         browse();
     else if (final_selection == "Choose one")
         chooseone();
-    else if (final_selection == "Delete")
-        deletepost();
     else if (final_selection == "Back to Browse")
         browse();
     else if (final_selection == "Comment")
