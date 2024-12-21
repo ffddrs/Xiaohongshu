@@ -4,3 +4,4 @@
 
 void commentinfile(vector<content>);
 void postinfile(content);
+void infile();

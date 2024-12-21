@@ -10,9 +10,9 @@ vector<content> allcontent;
 
 vector<content> commentoutfile(int commentnum, ifstream& in_file)
 {
-    vector<content> allcomment;
+    vector<content> allcommen;
     vector<content> blank;
-    allcomment = blank;
+    allcommen = blank;
     for (int i = 0; i < commentnum; i++)
     {
         content comment;
@@ -33,9 +33,9 @@ vector<content> commentoutfile(int commentnum, ifstream& in_file)
         {
             comment.comments = commentoutfile(comment.commentnum, in_file);
         }
-        allcomment.push_back(comment);
+        allcommen.push_back(comment);
     }
-    return allcomment;
+    return allcommen;
 }
 
 void postoutfile()

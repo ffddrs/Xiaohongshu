@@ -69,3 +69,20 @@ void postinfile(content post)
 	if (post.ifcomment == 1)
 		commentinfile(post.comments);
 }
+
+void infile()
+{
+	ofstream out_file("content", ios::out);
+	if (!out_file)
+	{
+		cout << "An error occurred: failed to open file" << endl;
+		exit(-1);
+	}
+	out_file << endl;
+	out_file.close();
+	for (content c : allcontent)
+	{
+		postinfile(c);
+	}
+
+}

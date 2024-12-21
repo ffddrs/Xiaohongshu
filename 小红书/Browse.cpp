@@ -30,14 +30,10 @@ void browse()
 void nbrowse(int n)
 {
 	clearscreen();
-	postoutfile();
 	nsortbytime(allcontent,n);
 	int i = 0;
 	for (int i=0;i<n;i++)
-	{
 		cout << i + 1 << "." << allcontent[i].title << "  " << "Posted by " << allcontent[i].nickname << "  " << convertstrtime(converttime(allcontent[i].time)) << endl;
-		i++;
-	}
 }
 
 void displaycomment(const content& c, int indent = 0)

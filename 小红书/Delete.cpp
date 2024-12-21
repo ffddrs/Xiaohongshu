@@ -5,6 +5,7 @@
 #include"Choose_Module.h"
 #include"GlobalVariable.h"
 #include"Postoutfile.h"
+#include"Postinfile.h"
 #include"Browse.h"
 #include"Home.h"
 
@@ -12,6 +13,7 @@ using namespace std;
 
 void deletepost()
 {
+	postoutfile();
 	int n=sortbyphonum(allcontent, currentphonum);
 	nbrowse(n);
 	display_selections(3, "Choose one,Home,Exit");
@@ -22,6 +24,7 @@ void deletepost()
 	else if (final_selection == "Choose one")
 	{
 		int inp;
+		cout << "Please enter a number of the post you want to browse" << endl;
 		cin >> inp;
 		cout << "Are you sure to delete this post" << endl;
 		display_selections(2, "Yes,No");
@@ -40,5 +43,6 @@ void deletepost()
 		cout << "Invalid input, go to home page";
 		home();
 	}
+	infile();
 	home();
 }

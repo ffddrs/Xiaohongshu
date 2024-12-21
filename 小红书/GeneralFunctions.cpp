@@ -59,7 +59,6 @@ void display_selections(int selection_num,string selections)
     }
 }
 
-
 datetime gettime()
 {
     time_t curtime;
@@ -204,7 +203,7 @@ int sortbyphonum(vector<content>& postlist, string targetphonum)
             sum++;
             content temp = postlist[i];
             for (int i1 = i; i1 > 0; i1--)
-                postlist[i] = postlist[i - 1];
+                postlist[i1] = postlist[i1 - 1];
             postlist[0] = temp;
         }
     }
