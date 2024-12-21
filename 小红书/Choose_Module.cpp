@@ -7,6 +7,7 @@
 #include"Browse.h"
 #include"Delete.h"
 #include"Following.h"
+#include"Messages.h"
 
 using namespace std;
 
@@ -34,7 +35,12 @@ void choose_module()
         comment();
     else if (final_selection == "Following")
         following();
-
+    else if (final_selection == "Choose one to reply")
+        reply();
+    else if (final_selection == "Comments")
+        messages();
+    else if (final_selection == "Back to Comments")
+        messages();
 
     else if(true)
     {

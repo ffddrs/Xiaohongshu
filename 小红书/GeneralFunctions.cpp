@@ -210,6 +210,23 @@ int sortbyphonum(vector<content>& postlist, string targetphonum)
     return sum;
 }
 
+int sortbyphonumandcomment(vector<content>& postlist, string targetphonum)
+{
+    int sum = 0;
+    for (int i = 0; i < postlist.size(); i++)
+    {
+        if (postlist[i].phonum == targetphonum&&postlist[i].ifcomment==1)
+        {
+            sum++;
+            content temp = postlist[i];
+            for (int i1 = i; i1 > 0; i1--)
+                postlist[i1] = postlist[i1 - 1];
+            postlist[0] = temp;
+        }
+    }
+    return sum;
+}
+
 string findphonum(string targetphonum)
 {
     for (content c : allcontent)
