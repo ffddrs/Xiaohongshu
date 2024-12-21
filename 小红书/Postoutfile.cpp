@@ -7,10 +7,8 @@
 using namespace std;
 
 vector<content> allcontent;
-vector<content> temp;
 
-
-vector<content>* commentoutfile(int commentnum, ifstream& in_file)
+vector<content> commentoutfile(int commentnum, ifstream& in_file)
 {
     vector<content> allcomment;
     vector<content> blank;
@@ -33,12 +31,11 @@ vector<content>* commentoutfile(int commentnum, ifstream& in_file)
         in_file >> comment.commentnum;
         if (comment.ifcomment == 1)
         {
-            comment.comments = *commentoutfile(comment.commentnum, in_file);
+            comment.comments = commentoutfile(comment.commentnum, in_file);
         }
         allcomment.push_back(comment);
     }
-    temp = allcomment;
-    return &temp;
+    return allcomment;
 }
 
 void postoutfile()
@@ -68,7 +65,7 @@ void postoutfile()
         if (!(in_file >> post.commentnum)) break;
         if (post.ifcomment == 1)
         {
-            post.comments = *commentoutfile(post.commentnum, in_file);
+            post.comments = commentoutfile(post.commentnum, in_file);
         }
         else if (post.ifcomment == 0)
             post.comments.clear();
