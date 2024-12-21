@@ -20,12 +20,3 @@ void messages()
 	display_selections(3, "Choose one to reply,Home,Exit");
 	choose_module();
 }
-
-void reply()
-{
-	int n;
-	cout << "Please enter the number of the comment you want to reply to" << endl;
-	cin >> n;
-	currentcomment = n;
-	comment4reply();
-}

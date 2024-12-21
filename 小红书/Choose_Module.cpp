@@ -36,11 +36,13 @@ void choose_module()
     else if (final_selection == "Following")
         following();
     else if (final_selection == "Choose one to reply")
-        reply();
+        chooseone2reply();
     else if (final_selection == "Comments")
         messages();
     else if (final_selection == "Back to Comments")
         messages();
+    else if (final_selection == "Reply")
+        reply();
 
     else if(true)
     {

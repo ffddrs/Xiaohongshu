@@ -184,9 +184,11 @@ void comment()
 	choose_module();
 }
 
-void comment4reply()
+void reply()
 {
 	content newcomment;
+	cout << "Please enter the number of the comment you want to reply to" << endl;
+	cin >> currentcomment;
 	cout << "Please enter the text below" << endl;
 	cin.ignore();
 	getline(cin, newcomment.text);
