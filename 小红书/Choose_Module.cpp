@@ -6,6 +6,7 @@
 #include"Upload.h"
 #include"Browse.h"
 #include"Delete.h"
+#include"Following.h"
 
 using namespace std;
 
@@ -31,6 +32,9 @@ void choose_module()
         browse();
     else if (final_selection == "Comment")
         comment();
+    else if (final_selection == "Following")
+        following();
+
 
     else if(true)
     {

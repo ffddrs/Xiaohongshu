@@ -280,3 +280,49 @@ regisenterpass:
 	display_selections(2, "Log in,Exit");
 	choose_module();
 }
+
+void accountsinfile()
+{
+	int sum = 0;
+	ifstream in_file("accounts", ios::in);
+	if (!in_file)
+	{
+		cout << "An error occurred: failed to open file" << endl;
+		exit(-1);
+	}
+	getline(in_file, acc[0].accphonum);
+	getline(in_file, acc[0].accpassword);
+	getline(in_file, acc[0].nickname);
+	in_file >> acc[0].subscrinum;
+	acc[0].subscription.clear();
+	if (acc[0].subscrinum != 0)
+	{
+		for (int i = 0; i < acc[0].subscrinum; i++)
+		{
+			string subscri;
+			in_file >> subscri;
+			acc[0].subscription.push_back(subscri);
+		}
+	}
+	sum++;
+	while (!in_file.fail())
+	{
+		in_file.ignore();
+		getline(in_file, acc[sum].accphonum);
+		getline(in_file, acc[sum].accpassword);
+		getline(in_file, acc[sum].nickname);
+		in_file >> acc[sum].subscrinum;
+		acc[sum].subscription.clear();
+		if (acc[sum].subscrinum != 0)
+		{
+			for (int i = 0; i < acc[sum].subscrinum; i++)
+			{
+				string subscri;
+				in_file >> subscri;
+				acc[sum].subscription.push_back(subscri);
+			}
+		}
+		sum++;
+	}
+	in_file.close();
+}
