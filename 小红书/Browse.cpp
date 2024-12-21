@@ -30,6 +30,8 @@ void browse()
 void nbrowse(int n)
 {
 	clearscreen();
+	postoutfile();
+	nsortbytime(allcontent,n);
 	int i = 0;
 	for (int i=0;i<n;i++)
 	{
