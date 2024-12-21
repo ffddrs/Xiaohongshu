@@ -209,3 +209,13 @@ int sortbyphonum(vector<content>& postlist, string targetphonum)
     }
     return sum;
 }
+
+string findphonum(string targetphonum)
+{
+    for (content c : allcontent)
+    {
+        if (c.phonum == targetphonum)
+            return c.nickname;
+    }
+    return "NULL";
+}
