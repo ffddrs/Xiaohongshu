@@ -98,7 +98,7 @@ void subscribeaftcomm(string postphonum)
 		}
 	}
 	cout << "You haven't subscribed to this author, do you want to subscribe ?" << endl;
-	display_selections(2, "Yes,NO");
+	display_selections(2, "Yes,No");
 	if (final_selection == "No")
 		browse();
 	else if (final_selection == "Yes")
