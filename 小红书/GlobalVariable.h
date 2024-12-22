@@ -42,6 +42,7 @@ struct accounts
 
 extern int currentpostnum;
 extern int currentcomment;
+extern int temp;
 extern string final_selection;
 extern string currentnickname;
 extern string currentphonum;

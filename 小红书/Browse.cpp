@@ -12,6 +12,7 @@
 using namespace std;
 
 int currentpostnum;
+int temp;
 
 void browse()
 {
@@ -24,6 +25,7 @@ void browse()
 		cout << i+1 << "." << post.title << "  " << "Posted by " << post.nickname << "  " << convertstrtime(converttime(post.time)) << endl;
 		i++;
 	}
+	temp = i ;
 	display_selections(3, "Choose one,Home,Exit");
 	choose_module();
 }
@@ -33,8 +35,9 @@ void nbrowse(int n)
 	clearscreen();
 	nsortbytime(allcontent,n);
 	int i = 0;
-	for (int i=0;i<n;i++)
+	for (;i<n;i++)
 		cout << i + 1 << "." << allcontent[i].title << "  " << "Posted by " << allcontent[i].nickname << "  " << convertstrtime(converttime(allcontent[i].time)) << endl;
+	temp = i ;
 }
 
 void displaycomment(const content& c, int indent = 0)
@@ -90,14 +93,28 @@ void displaypost4reply(int n, int indent = 0)
 		displaycomment(comment, indent + 4);
 		i++;
 	}
-
+	temp = i - 1;
 }
 
 void chooseone()
 {
 	int n;
 	cout << "Please enter a number of the post you want to browse" << endl;
-	cin >> n;
+	do
+	{
+		cin >> n;
+		if (cin.fail())
+		{
+			cin.clear(); // 清除错误状态
+			cin.ignore(numeric_limits<streamsize>::max(), '\n'); // 忽略错误输入
+			cout << "Invalid input, enter again" << endl;
+			n = 0; // 重置输入值以继续循环
+		}
+		else if (n < 1 || n > temp)
+		{
+			cout << "Invalid input, enter again" << endl;
+		}
+	} while (n < 1 || n > temp);
 	currentpostnum = n;
 	displaypost(n);
 	cout << endl;
@@ -109,7 +126,21 @@ void chooseone2reply()
 {
 	int n;
 	cout << "Please enter the number of the post you want to reply to" << endl;
-	cin >> n;
+	do
+	{
+		cin >> n;
+		if (cin.fail())
+		{
+			cin.clear(); // 清除错误状态
+			cin.ignore(numeric_limits<streamsize>::max(), '\n'); // 忽略错误输入
+			cout << "Invalid input, enter again" << endl;
+			n = 0; // 重置输入值以继续循环
+		}
+		else if (n < 1 || n > temp)
+		{
+			cout << "Invalid input, enter again" << endl;
+		}
+	} while (n < 1 || n > temp);
 	currentpostnum = n;
 	displaypost4reply(n);
 	cout << endl;
@@ -190,7 +221,21 @@ void reply()
 {
 	content newcomment;
 	cout << "Please enter the number of the comment you want to reply to" << endl;
-	cin >> currentcomment;
+	do
+	{
+		cin >> currentcomment;
+		if (cin.fail())
+		{
+			cin.clear(); // 清除错误状态
+			cin.ignore(numeric_limits<streamsize>::max(), '\n'); // 忽略错误输入
+			cout << "Invalid input, enter again" << endl;
+			currentcomment = 0; // 重置输入值以继续循环
+		}
+		else if (currentcomment < 1 || currentcomment > temp)
+		{
+			cout << "Invalid input, enter again" << endl;
+		}
+	} while (currentcomment < 1 || currentcomment > temp);
 	cout << "Please enter the text below" << endl;
 	cin.ignore();
 	getline(cin, newcomment.text);

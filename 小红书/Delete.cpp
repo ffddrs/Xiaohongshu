@@ -25,7 +25,21 @@ void deletepost()
 	{
 		int inp;
 		cout << "Please enter a number of the post you want to browse" << endl;
-		cin >> inp;
+		do
+		{
+			cin >> inp;
+			if (cin.fail())
+			{
+				cin.clear(); // 清除错误状态
+				cin.ignore(numeric_limits<streamsize>::max(), '\n'); // 忽略错误输入
+				cout << "Invalid input, enter again" << endl;
+				inp = 0; // 重置输入值以继续循环
+			}
+			else if (inp < 1 || inp > temp)
+			{
+				cout << "Invalid input, enter again" << endl;
+			}
+		} while (inp < 1 || inp > temp);
 		cout << "Are you sure to delete this post" << endl;
 		display_selections(2, "Yes,No");
 		if (final_selection == "Yes")
