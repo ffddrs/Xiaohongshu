@@ -17,17 +17,19 @@ void clearscreen() {
 #endif
 }
 
-void display_selections(int selection_num,string selections)
+// GeneralFunctions.cpp
+
+void display_selections(int selection_num, string selections)
 {
     string assist;
     final_selection = assist;
     const string continu = "Press the keys below to continue";
     cout << endl << endl << endl;
-    cout << continu<<endl;
+    cout << continu << endl;
     int p = 0;
     for (int i = 1; i <= selection_num; i++)
     {
-        cout << i<<"：";
+        cout << i << "：";
         for (; p < selections.size(); p++)
         {
             if (selections[p] != ',')
@@ -37,18 +39,26 @@ void display_selections(int selection_num,string selections)
                 p++;
                 break;
             }
-
         }
         cout << "   ";
     }
     cout << endl;
     int input;
-    do 
-    { 
-        cin >> input; 
-        if (input<1 || input>selection_num)
+    do
+    {
+        cin >> input;
+        if (cin.fail())
+        {
+            cin.clear(); // 清除错误状态
+            cin.ignore(numeric_limits<streamsize>::max(), '\n'); // 忽略错误输入
             cout << "Invalid input, enter again" << endl;
-    } while (input<1 || input>selection_num);
+            input = 0; // 重置输入值以继续循环
+        }
+        else if (input < 1 || input > selection_num)
+        {
+            cout << "Invalid input, enter again" << endl;
+        }
+    } while (input < 1 || input > selection_num);
     int scan_selection = 1;
     for (char i : selections)
     {
