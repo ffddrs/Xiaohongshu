@@ -172,6 +172,8 @@ void login()
 enterpass:
 	cout << "Please enter your phone number below" << endl;
 	getline(cin, phnum);
+	if (phonumvalidity(phnum) == -1)
+		goto enterpass;
 	cout << "Please enter your password below" << endl;
 	std::getline(std::cin, password);
 	verify = geranstring(4);
@@ -227,7 +229,7 @@ enterpass:
 	else
 	{
 		cout << "This phone number has not been registered";
-		display_selections(2, "Register,Exit");
+		display_selections(3, "Register,Home,Exit");
 		choose_module();
 	}
 }
