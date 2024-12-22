@@ -36,7 +36,7 @@ struct accounts
     string accphonum;
     string accpassword;
     string nickname;
-    int subscrinum;
+    int subscrinum = -1;
     vector<string> subscription;
 };
 

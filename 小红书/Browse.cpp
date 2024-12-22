@@ -143,6 +143,8 @@ void subscribeaftcomm(string postphonum)
 		}
 		for (accounts account : acc)
 		{
+			if (account.subscrinum == -1)
+				break;
 			out_file << account.accphonum << endl << account.accpassword << endl << account.nickname << endl << account.subscrinum << endl;
 			for (string sub : account.subscription)
 				out_file << sub << endl;

@@ -6,6 +6,7 @@
 #include"GeneralFunctions.h"
 #include"Choose_Module.h"
 #include"GlobalVariable.h"
+#include"Login&Register.h"
 
 using namespace std;
 
@@ -92,27 +93,8 @@ int passwordvalidity(string password)
 
 int accountunique(string phonum)
 {
-	struct accounts
-	{
-		string accphonum;
-		string accpassword;
-		string nickname;
-	};
 	int sum = 1;
-	accounts acc[200];
-	ifstream in_file("accounts", ios::in);
-	if (!in_file)
-	{
-		cout << "An error occurred: failed to open file" << endl;
-		exit(-1);
-	}
-	in_file >> acc[0].accphonum >> acc[0].accpassword;
-	while (!in_file.fail())
-	{
-		in_file >> acc[sum].accphonum >> acc[sum].accpassword;
-		sum++;
-	}
-	in_file.close();
+	accountsinfile();
 	for(accounts i:acc)
 		if (phonum == i.accphonum)
 		{
