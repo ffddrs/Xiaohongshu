@@ -14,7 +14,7 @@ accounts acc[200];
 int currentaccno;
 
 string geranstring(int length) {
-    const char charset[] = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ";
+    const char charset[] = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
     const int max_index = sizeof(charset) - 2;
     random_device rd; 
     mt19937 generator(rd()); 
@@ -260,7 +260,7 @@ regisenterpass:
 		}
 	} while (verifyinput != verify);
 	while (passwordvalidity(password) == -1)
-		std::getline(std::cin, password);
+		goto regisenterpass;
 	cout << "Please Re-enter your password below"<<endl;
 	std::getline(std::cin, repassword);
 	if (repassword != password)
