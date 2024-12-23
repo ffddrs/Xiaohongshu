@@ -32,10 +32,10 @@ void following()
 		cin >> uploader_selection_num;
 		if (cin.fail())
 		{
-			cin.clear(); // 清除错误状态
-			cin.ignore(numeric_limits<streamsize>::max(), '\n'); // 忽略错误输入
+			cin.clear();
+			cin.ignore(numeric_limits<streamsize>::max(), '\n');
 			cout << "Invalid input, enter again" << endl;
-			uploader_selection_num = 0; // 重置输入值以继续循环
+			uploader_selection_num = 0; 
 		}
 		else if (uploader_selection_num < 1 || uploader_selection_num > temp)
 		{

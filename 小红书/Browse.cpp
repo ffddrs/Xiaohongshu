@@ -105,10 +105,10 @@ void chooseone()
 		cin >> n;
 		if (cin.fail())
 		{
-			cin.clear(); // 清除错误状态
-			cin.ignore(numeric_limits<streamsize>::max(), '\n'); // 忽略错误输入
+			cin.clear();
+			cin.ignore(numeric_limits<streamsize>::max(), '\n');
 			cout << "Invalid input, enter again" << endl;
-			n = 0; // 重置输入值以继续循环
+			n = 0;
 		}
 		else if (n < 1 || n > temp)
 		{
@@ -131,10 +131,10 @@ void chooseone2reply()
 		cin >> n;
 		if (cin.fail())
 		{
-			cin.clear(); // 清除错误状态
-			cin.ignore(numeric_limits<streamsize>::max(), '\n'); // 忽略错误输入
+			cin.clear();
+			cin.ignore(numeric_limits<streamsize>::max(), '\n');
 			cout << "Invalid input, enter again" << endl;
-			n = 0; // 重置输入值以继续循环
+			n = 0; 
 		}
 		else if (n < 1 || n > temp)
 		{
@@ -226,10 +226,10 @@ void reply()
 		cin >> currentcomment;
 		if (cin.fail())
 		{
-			cin.clear(); // 清除错误状态
-			cin.ignore(numeric_limits<streamsize>::max(), '\n'); // 忽略错误输入
+			cin.clear(); 
+			cin.ignore(numeric_limits<streamsize>::max(), '\n');
 			cout << "Invalid input, enter again" << endl;
-			currentcomment = 0; // 重置输入值以继续循环
+			currentcomment = 0; 
 		}
 		else if (currentcomment < 1 || currentcomment > temp)
 		{

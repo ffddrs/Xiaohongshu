@@ -30,10 +30,10 @@ void deletepost()
 			cin >> inp;
 			if (cin.fail())
 			{
-				cin.clear(); // 清除错误状态
-				cin.ignore(numeric_limits<streamsize>::max(), '\n'); // 忽略错误输入
+				cin.clear(); 
+				cin.ignore(numeric_limits<streamsize>::max(), '\n'); 
 				cout << "Invalid input, enter again" << endl;
-				inp = 0; // 重置输入值以继续循环
+				inp = 0;
 			}
 			else if (inp < 1 || inp > temp)
 			{
