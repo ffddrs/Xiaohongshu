@@ -121,6 +121,7 @@ void login()
 	getline(in_file, acc[0].accpassword);
 	getline(in_file, acc[0].nickname);
 	in_file >> acc[0].subscrinum;
+	acc[0].subscription.clear();
 	if (acc[0].subscrinum != 0)
 	{
 		for (int i = 0; i < acc[0].subscrinum; i++)
@@ -138,6 +139,7 @@ void login()
 		getline(in_file, acc[sum].accpassword);
 		getline(in_file, acc[sum].nickname);	
 		in_file >> acc[sum].subscrinum;
+		acc[sum].subscription.clear();
 		if (acc[sum].subscrinum != 0)
 		{
 			for (int i = 0; i < acc[sum].subscrinum; i++)
