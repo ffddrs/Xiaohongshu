@@ -17,6 +17,12 @@ void following()
 	postoutfile();
 	accountsinfile();
 	int i = 1;
+	if (acc[currentaccno].subscrinum == 0)
+	{
+		cout << "You haven't subscribed to any uploaders" << endl;
+		display_selections(2, "Home,Exit");
+		choose_module();
+	}
 	for (string phonum : acc[currentaccno].subscription)
 	{
 		if (findphonum(phonum) != "NULL")
